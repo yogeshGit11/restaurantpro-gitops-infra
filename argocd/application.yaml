@@ -9,6 +9,8 @@ spec:
     repoURL: 'https://github.com/yogeshGit11/restaurantpro-gitops-infra.git'
     targetRevision: main
     path: kubernetes/base
+    directive:
+      recurse: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: restaurantspace
