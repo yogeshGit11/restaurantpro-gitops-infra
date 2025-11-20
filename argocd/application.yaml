@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'git@github.com:yogeshGit11/restaurantpro-gitops-infra.git'
-    targetRevision: HEAD
+    repoURL: 'https://github.com/yogeshGit11/restaurantpro-gitops-infra.git'
+    targetRevision: main
     path: kubernetes/base
   destination:
     server: 'https://kubernetes.default.svc'
