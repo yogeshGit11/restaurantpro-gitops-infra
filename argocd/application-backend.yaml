@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: restaurant-backend
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: backend=docker.io/yogeshpc2/restaurant-backend
+    argocd-image-updater.argoproj.io/backend.update-strategy: semver
+    argocd-image-updater.argoproj.io/backend.allow-tags: regex:^([0-9a-f]{7})$
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/yogeshGit11/restaurantpro-gitops-infra.git
+    targetRevision: main
+    path: kubernetes/base/backend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: restaurantspace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
